@@ -42,6 +42,7 @@ jobs:
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.event.repository.has_pages == true
 
     permissions:
       pages: write
